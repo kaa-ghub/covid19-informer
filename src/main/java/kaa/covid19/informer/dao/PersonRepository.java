@@ -1,6 +1,6 @@
-package memoryhack.snowballs.memory.backend.dao;
+package kaa.covid19.informer.dao;
 
-import memoryhack.snowballs.memory.backend.model.Person;
+import kaa.covid19.informer.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

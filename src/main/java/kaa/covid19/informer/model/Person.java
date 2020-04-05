@@ -1,4 +1,4 @@
-package memoryhack.snowballs.memory.backend.model;
+package kaa.covid19.informer.model;
 
 import lombok.Data;
 
