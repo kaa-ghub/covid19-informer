@@ -27,7 +27,7 @@ telegram:
   port: 8080
 
 bot:
-  token: 1151366360:AAE1nzSJqo1vg1rPOzcjSzIl23PNHHpTPvc
+  token: {TOKEN}
   username: covid19_informer_bot
 
 application:
