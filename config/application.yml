@@ -20,5 +20,19 @@ spring:
   properties:
     hibernate:
       dialect: org.hibernate.dialect.H2Dialect
+telegram:
+  proxy:
+    type:HTTP
+  host: 192.168.15.10
+  port: 8080
 
-telegrambots:
+bot:
+  token: 1151366360:AAE1nzSJqo1vg1rPOzcjSzIl23PNHHpTPvc
+  username: covid19_informer_bot
+
+application:
+  proxy:
+    enabled: true
+    host: 192.168.15.10
+    port: 8080
+    noProxy: localhost
