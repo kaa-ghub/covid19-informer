@@ -1,12 +1,12 @@
 package com.github.kaa.covid19.informer.model;
 
-import lombok.Builder;
+import com.github.kaa.covid19.informer.support.Emoji;
 import lombok.Data;
-import lombok.ToString;
 
 import javax.persistence.Embeddable;
-import java.math.BigDecimal;
 import java.util.StringJoiner;
+
+import static com.github.kaa.covid19.informer.support.mapper.CountryCodeMapper.getEmojiByCountry;
 
 @Data
 @Embeddable
@@ -28,6 +28,7 @@ public class Country {
     public String toString() {
         return new StringJoiner("\n", "Country statistic \n", "")
                 .add("name: " + name)
+                .add("flag: " + getEmojiByCountry(name))
                 .add("totalCases: " + totalCases)
                 .add("newCases: " + newCases)
                 .add("totalDeaths: " + totalDeaths)

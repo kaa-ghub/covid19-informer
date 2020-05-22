@@ -46,7 +46,9 @@ public class StatisticDay implements Serializable, Comparable<StatisticDay> {
         }
         Map<String, BigDecimal> commonStatistic = new HashMap<>();
         for (String s : this.commonStatistic.keySet()) {
-            commonStatistic.put(s, this.commonStatistic.get(s).subtract(o.getCommonStatistic().get(s)));
+            if (this.commonStatistic.get(s) != null && o.getCommonStatistic().get(s) != null) {
+                commonStatistic.put(s, this.commonStatistic.get(s).subtract(o.getCommonStatistic().get(s)));
+            }
         }
         return commonStatistic;
     }

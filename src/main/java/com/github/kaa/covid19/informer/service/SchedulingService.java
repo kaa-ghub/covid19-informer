@@ -17,7 +17,7 @@ public class SchedulingService {
     private final StatisticService statisticService;
     private final SubscribeService subscribeService;
 
-    @Scheduled(fixedDelayString = "${application.statistic.fixedDelay}")
+    //@Scheduled(fixedDelayString = "${application.statistic.fixedDelay}")
     private void getStatistic() {
         log.info("I'm going to crawl");
         final Pair<StatisticDay, StatisticDay> pair = covidParserHelper.getStatistic();
@@ -27,7 +27,7 @@ public class SchedulingService {
         log.info("finish");
     }
 
-    @Scheduled(fixedDelayString = "${application.subscribe.fixedDelay}")
+    //@Scheduled(fixedDelayString = "${application.subscribe.fixedDelay}")
     private void proceedSubscribes() {
         log.info("I'm going to process subscribes");
         subscribeService.process();

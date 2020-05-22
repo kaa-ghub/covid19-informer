@@ -8,6 +8,8 @@ import static com.github.kaa.covid19.informer.util.Constants.*;
 public class CommandHelper {
 
     public String getCountry(String s) {
-        return s.substring(COUNTRY_COMMAND.length()).trim();
+        String countryCommand = COUNTRY_COMMAND + " ";
+        s = Emoji.clear(s.substring(countryCommand.length())).trim();
+        return s;
     }
 }

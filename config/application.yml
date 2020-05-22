@@ -22,10 +22,6 @@ spring:
       dialect: org.hibernate.dialect.H2Dialect
 
 telegram:
-  proxy:
-    type:HTTP
-  host: 192.168.15.10
-  port: 8080
 
 bot:
   token: {}
@@ -36,3 +32,6 @@ application:
     fixedDelay: 1000000
   subscribe:
     fixedDelay: 1000000
+
+
+

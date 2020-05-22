@@ -11,14 +11,10 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.PostConstruct;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +31,7 @@ public class StatisticService {
 
         saveToday(today);
         statisticDayRepository.save(yesterday);
-        @NotNull final Map<String, BigDecimal> decimalMap = statisticDayRepository.findAll().get(0).diffTo(statisticDayRepository.findAll().get(1));
+        //@NotNull final Map<String, BigDecimal> decimalMap = statisticDayRepository.findAll().get(0).diffTo(statisticDayRepository.findAll().get(1));
         final List<StatisticDay> all = statisticDayRepository.findAll();
     }
 
@@ -93,8 +89,13 @@ public class StatisticService {
         final StatisticDay today = statisticDayRepository.findById(TODAY).orElseThrow(() -> new RuntimeException("Not ready"));
         final Country country = today.getCountryStatistic().get(s);
         if (country == null) {
-            return "Country "+ s + " not found";
+            return "Country " + s + " not found";
         }
         return country.toString();
+    }
+
+    public List<String> getCountriesList() {
+        final StatisticDay today = statisticDayRepository.findById(TODAY).orElseThrow(() -> new RuntimeException("Not ready"));
+        return today.getCountryStatistic().keySet().stream().collect(Collectors.toList());
     }
 }
